@@ -23,13 +23,15 @@ files = find_files(ARGV)
 files.each do |k| 
   puts 
   puts 
-  puts "####### #{k} #########"
+  puts "## #{k} ##"
   z = read_file(k)
-  puts "####### #{z.size} #########"
-  puts z.inspect
-  puts CheckRule.line_terminator(z)
-  puts CheckRule.identation(z)
+  puts "## lines: #{z.size} ##"
+  puts z
   puts 
+  puts "####### Line identation ###########"
+  CheckRule.identation(z)
+  puts "####### Line terminator ###########"
+  CheckRule.line_terminator(z)
   puts 
 end
 
