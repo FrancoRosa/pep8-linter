@@ -4,7 +4,7 @@ require_relative '../lib/check_rule.rb'
 require_relative '../lib/colors.rb'
 require_relative '../lib/features.rb'
 
-def find_files(directories)
+def find_py_files(directories)
   if directories.size.zero?
     return Dir[__dir__ + '/*.py']
 
@@ -20,20 +20,10 @@ def read_file(file)
   return file_data
 end
 
-def test_def(input)
-  puts input
-end
-
-
-####################################
-#############################################
-files = find_files(ARGV)
+files = find_py_files(ARGV)
 files.each do |file| 
-  puts 
-  puts 
   puts file.bold
   file_data = read_file(file)
-  CheckRule.identation(file_data)
-  CheckRule.line_terminator(file_data)
-  puts 
+  puts CheckRule.features(file_data)
+  puts CheckRule.line_terminator(file_data)
 end
