@@ -1,4 +1,8 @@
 class String
+  def red
+    "\e[32m#{self}\e[0m"
+  end
+
   def green
     "\e[32m#{self}\e[0m"
   end
@@ -14,4 +18,7 @@ class String
   def gray
     "\e[37m#{self}\e[0m"
   end
+
+  
+
 end

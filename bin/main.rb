@@ -1,6 +1,8 @@
 #! /usr/bin/ruby
 
 require_relative '../lib/check_rule.rb'
+require_relative '../lib/colors.rb'
+require_relative '../lib/features.rb'
 
 def find_files(directories)
   if directories.size.zero?
@@ -18,20 +20,20 @@ def read_file(file)
   return file_data
 end
 
-#############################################
-files = find_files(ARGV)
-files.each do |k| 
-  puts 
-  puts 
-  puts "## #{k} ##"
-  z = read_file(k)
-  puts "## lines: #{z.size} ##"
-  puts z
-  puts 
-  puts "####### Line identation ###########"
-  CheckRule.identation(z)
-  puts "####### Line terminator ###########"
-  CheckRule.line_terminator(z)
-  puts 
+def test_def(input)
+  puts input
 end
 
+
+####################################
+#############################################
+files = find_files(ARGV)
+files.each do |file| 
+  puts 
+  puts 
+  puts file.bold
+  file_data = read_file(file)
+  CheckRule.identation(file_data)
+  CheckRule.line_terminator(file_data)
+  puts 
+end
