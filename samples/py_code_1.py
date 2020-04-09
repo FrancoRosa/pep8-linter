@@ -1,7 +1,7 @@
-from time import time, ctime, sleep 
-while True : 
-    sleep(1) 
-    print(ctime(time())) 
-	hola
-	si
-
+from time import time, ctime, sleep
+while True:
+    sleep
+     print(ctime(time()))
+hola
+si
+si
