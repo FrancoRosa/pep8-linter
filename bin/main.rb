@@ -24,6 +24,6 @@ files = find_py_files(ARGV)
 files.each do |file|
   puts file.bold
   file_data = read_file(file)
-  puts CheckRule.features(file_data)
+  puts CheckRule.line_rules(file_data)
   puts CheckRule.line_terminator(file_data)
 end
