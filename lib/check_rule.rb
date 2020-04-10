@@ -36,7 +36,7 @@ class CheckRule
 
   def self.unspected_identation(line_identation, index)
     location = "line: #{index + 1}, col: #{line_identation}: ".red
-    rule = 'rule: unspected identation'
+    rule = 'rule: unexpected identation'
     location + rule
   end
 
