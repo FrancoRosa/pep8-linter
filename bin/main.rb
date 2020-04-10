@@ -21,7 +21,7 @@ def read_file(file)
 end
 
 files = find_py_files(ARGV)
-files.each do |file| 
+files.each do |file|
   puts file.bold
   file_data = read_file(file)
   puts CheckRule.features(file_data)
