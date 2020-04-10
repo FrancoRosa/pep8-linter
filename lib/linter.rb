@@ -1,13 +1,20 @@
 require_relative 'colors.rb'
 require_relative 'features.rb'
 
-class CheckRule
+class Linter
   @identation = 4
+  @max_line_length = 79
 
   def self.line_terminator(file_data)
     location = "line: #{file_data.size}, col: #{file_data[-1].size}: ".red
     rule = 'rule: there should be a line terminator on last line'
     location + rule if file_data[-1][-1] != "\n"
+  end
+
+  def self.line_length(line, index)
+    location = "line: #{index + 1}, col: #{@max_line_length}: ".red
+    rule = "rule: size of line should be less than #{@max_line_length}"
+    location + rule if line.size > @max_line_length
   end
 
   def self.identation_tabs(line, index)
@@ -68,10 +75,11 @@ class CheckRule
     broken_rules << identation_tabs(line, index) unless identation_tabs(line, index).nil?
     broken_rules << spaces_before_terminator(line, index) unless spaces_before_terminator(line, index).nil?
     broken_rules << useless_semicolon(line, index) unless useless_semicolon(line, index).nil?
+    broken_rules << line_length(line, index) unless line_length(line, index).nil?
     broken_rules
   end
 
-  def self.line_rules(lines)
+  def self.check_rules(lines)
     broken_rules = []
     lines.each_with_index do |line, i|
       pre_line = i.positive? ? lines[i - 1] : ''
@@ -80,6 +88,7 @@ class CheckRule
         broken_rules << identation_rules(line, pre_line, i)
       end
     end
+    broken_rules << line_terminator(lines) unless line_terminator(lines).nil?
     broken_rules
   end
 end
