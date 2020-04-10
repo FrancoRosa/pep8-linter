@@ -25,31 +25,31 @@ class Linter
 
   def self.spaces_before_terminator(line, index)
     location = "line: #{index + 1}, col: #{line.size}: ".red
-    rule = 'rule: erase unnecesary spaces before line terminator'
+    rule = 'rule: erase unnecessary spaces before line terminator'
     location + rule if line.spaces_before_terminator.nonzero?
   end
 
   def self.useless_semicolon(line, index)
     location = "line: #{index + 1}, col: #{line.size}: ".red
-    rule = 'rule: semi colons are unnecesary'
+    rule = 'rule: semi colons are unnecessary'
     location + rule if line.end_semi_colon?
   end
 
   def self.different_identation(line_identation, diff_identation, index)
     location = "line: #{index + 1}, col: #{line_identation}: ".red
-    rule = "rule: identation should use #{@identation} spaces"
+    rule = "rule: indentation should use #{@identation} spaces"
     location + rule if diff_identation != @identation
   end
 
   def self.unspected_identation(line_identation, index)
     location = "line: #{index + 1}, col: #{line_identation}: ".red
-    rule = 'rule: unexpected identation'
+    rule = 'rule: unexpected indentation'
     location + rule
   end
 
   def self.newline_symbol(line_identation, index)
     location = "line: #{index + 1}, col: #{line_identation}: ".red
-    rule = "rule: identation should not use #{@identation} spaces"
+    rule = "rule: indentation should not use #{@identation} spaces"
     location + rule
   end
 
