@@ -31,6 +31,44 @@ This linter flags the following errors:
 - Line too long.
 - Lack of line terminator on the last line.
 
+## Built With
+
+- Ruby
+- VSCode
+- Rubocop
+
+## Getting Started
+
+### Requisites
+
+- You should have [Ruby](https://www.ruby-lang.org/en/documentation/installation/) installed.
+
+- [Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) the repository to your local machine.
+
+### Running the linter
+
+ - Go to the **pep8-linter** directory and run the following:
+ ```
+  ./bin/main.rb [PATH_WHERE_YOU_CLONED_THIS]/pep8-linter/samples
+ ```
+ - The linter will run and it will show the following output:
+ ```
+  File: /py_code_1.py
+
+  File: /py_code_2.py
+  line: 6, col: 2: rule: erase unnecessary spaces before line terminator.
+  line: 6, col: 1: rule: unexpected indentation.
+  line: 13, col: 10: rule: there should be a line terminator on last line.
+
+ ```
+
+### Explanation
+
+- After calling *./bin/main.rb* you should put the full directory where your *.py* files are located.
+- The linter will only look for *.py* files on the directory and review all of them.
+- In this example *py_code_1.py* has no linter errors.
+- In this example *py_code_2.py* has errors on the *lines* and *columns* specified with red.
+
 ## Author
 
 👤 Franco Rosa
