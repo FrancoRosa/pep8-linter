@@ -23,11 +23,15 @@ class String
     !chomp[/(\( *\z|, *\z|\+ *\z|\[ *\z)/].nil?
   end
 
-  def class_name?
-    !["Class "].nil?
+  def class_key?
+    ![/\bClass /].nil?
   end
 
-  def def_name?
-    !["def "].nil?
+  def def_key?
+    ![/\bdef /].nil?
+  end
+
+  def end_key?
+    ![/\bend /].nil?
   end
 end

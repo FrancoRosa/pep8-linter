@@ -1,10 +1,12 @@
+# rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
+
 require_relative 'colors.rb'
 require_relative 'features.rb'
 
 class Linter
   @max_line_length = 79
-  @indentation = 4 
-  
+  @indentation = 4
+
   def self.line_terminator(file_data)
     location = "line: #{file_data.size}, col: #{file_data[-1].size}: ".red
     rule = 'rule: there should be a line terminator on last line'
@@ -58,11 +60,11 @@ class Linter
     pre_indentation = pre_line.indentation
     line_indentation = line.indentation
     diff_indentation = line_indentation - pre_indentation
-    if diff_indentation.positive? and (pre_line.end_colon? or pre_line.class_name? or pre_line.def_name?)
+    if diff_indentation.positive? and (pre_line.end_colon? or pre_line.class_key? or pre_line.def_key?)
       unless different_indentation(line_indentation, diff_indentation, index).nil?
         broken_rules << different_indentation(line_indentation, diff_indentation, index)
       end
-    elsif pre_line.end_new_line_symbol?
+    elsif pre_line.end_new_line_symbol? or pre_line.end_key?
       newline_symbol(line_indentation, index)
     elsif diff_indentation.nonzero?
       broken_rules << unspected_indentation(line_indentation, index)
@@ -81,9 +83,6 @@ class Linter
 
   def self.check_rules(extension, lines)
     @indentation = 2 unless extension['.rb'].nil?
-    puts ">>>>>>>>>"
-    puts @indentation.inspect
-    puts ">>>>>>>>>"
     broken_rules = []
     lines.each_with_index do |line, i|
       pre_line = i.positive? ? lines[i - 1] : ''
@@ -96,3 +95,4 @@ class Linter
     broken_rules
   end
 end
+# rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
