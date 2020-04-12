@@ -6,7 +6,7 @@ Python has PEP-8 as the Style Standard for coding you can read more about it [Py
 
 > A code that follows a style is easier to read.
 
-I decided to build this linter because Python is one of most popular languages, personally I use it to make automatization with [Raspberry Pi](https://www.raspberrypi.org) and web applications with [Django](https://www.djangoproject.com)
+I decided to build this linter because Python is one of the most popular languages, personally I use it to make automatization with [Raspberry Pi](https://www.raspberrypi.org) and web applications with [Django](https://www.djangoproject.com)
 
 The coolest feature about this linter are the colors, I used some of the code posted here [Colorize Console](https://gist.github.com/KenanAcar/6387f4c331179ec4a49c44d3fea46a14)
 
@@ -16,7 +16,12 @@ The most valuable tool to build this linter was use regular expressions or Regex
 [Try it! - Repl.it](https://repl.it/@FrancoRosa/pep8-linter)
 
 ## Presentation Video
-[![Video Screeshot](https://i.ytimg.com/vi/qJFWLQNonno/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCMBswrUp4MCzIqvDIMmsz0TlMK-Q)](https://www.youtube.com/watch?v=qJFWLQNonno&feature=youtu.be)
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=qJFWLQNonno&feature=youtu.be">
+    <img width="460" height="300" src="https://i.ytimg.com/vi/qJFWLQNonno/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCMBswrUp4MCzIqvDIMmsz0TlMK-Q">
+  </a>
+</p>
 
 ## Linter Features 
 
@@ -27,7 +32,7 @@ It flags the following errors:
 - Indentation with tabs.
 - Unstandard indentation after a colon.
 - Unstandard indentation after '(', ','. '+'. '['.
-- Useless semicolon at the end of the line.
+- Semicolon at the end of the line.
 - Unnecessary spaces before line terminator.
 - Line too long.
 - Lack of line terminator on the last line.
@@ -108,7 +113,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- [Felipe Rosa](github.com/flpfar) for his recomendations about naming the "Linter Class"
+- [Felipe Rosa](github.com/flpfar) for his sugestion about naming the "Linter Class"
 - KenanAcar for his [Colorize Console](https://gist.github.com/KenanAcar/6387f4c331179ec4a49c44d3fea46a14) 
 - [The Odin Project](https://www.theodinproject.com/courses/ruby-programming)
 - Team 94 Capricornus Microverse
