@@ -1,5 +1,5 @@
 class String
-  def identation_with_tabs
+  def indentation_with_tabs
     self[/\A\t*/].size
   end
 
@@ -7,7 +7,7 @@ class String
     chomp[/ *\z/].size
   end
 
-  def identation
+  def indentation
     self[/\A */].size
   end
 

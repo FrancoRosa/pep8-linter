@@ -18,12 +18,12 @@ RSpec.describe Linter do
   describe '#indentation_tabs' do
     it 'returns nil if there is no tabs as indentation' do
       line = "code code\n"
-      expect(Linter.identation_tabs(line, 0).nil?).to be true
+      expect(Linter.indentation_tabs(line, 0).nil?).to be true
     end
 
     it 'returns a message if there is no an eol on file' do
       line = "\t\tcode code\n"
-      expect(Linter.identation_tabs(line, 0).nil?).to be false
+      expect(Linter.indentation_tabs(line, 0).nil?).to be false
     end
   end
 
@@ -55,23 +55,23 @@ RSpec.describe Linter do
     end
   end
 
-  describe '#different_identation' do
+  describe '#different_indentation' do
     it 'returns nil if difference from previous indentation is standard' do
-      diff_identation = 4
-      actual = Linter.different_identation(0, diff_identation, 0).nil?
+      diff_indentation = 4
+      actual = Linter.different_indentation(0, diff_indentation, 0).nil?
       expect(actual).to be true
     end
 
     it 'returns a message if diference from previous indentation is not standard' do
-      diff_identation = 0
-      actual = Linter.different_identation(0, diff_identation, 0).nil?
+      diff_indentation = 0
+      actual = Linter.different_indentation(0, diff_indentation, 0).nil?
       expect(actual).to be false
     end
   end
 
-  describe '#unspected_identation' do
+  describe '#unspected_indentation' do
     it 'always result a message' do
-      actual = Linter.unspected_identation(0, 0).nil?
+      actual = Linter.unspected_indentation(0, 0).nil?
       expect(actual).to be false
     end
   end
@@ -83,26 +83,26 @@ RSpec.describe Linter do
     end
   end
 
-  describe '#identation_rules' do
+  describe '#indentation_rules' do
     it 'returns a message if the indentation is unexpected' do
       pre_line = "    code \n"
       act_line = "   code \n"
-      actual = Linter.identation_rules(act_line, pre_line, 0)
+      actual = Linter.indentation_rules(act_line, pre_line, 0)
       expect(actual[0]['unexpected'].nil?).to eq false
     end
 
     it 'returns a message if the block indentation is used for symbols' do
       pre_line = "  code() \n"
       act_line = "   code \n"
-      actual = Linter.identation_rules(act_line, pre_line, 0)
+      actual = Linter.indentation_rules(act_line, pre_line, 0)
       expect(actual[0]['unexpected'].nil?).to eq false
     end
 
     it 'returns a message if the block indentation not standard' do
       pre_line = "code():\n"
       act_line = "  code\n"
-      actual = Linter.identation_rules(act_line, pre_line, 0)
-      expect(actual[0]['identation'].nil?).to eq false
+      actual = Linter.indentation_rules(act_line, pre_line, 0)
+      expect(actual[0]['indentation'].nil?).to eq false
     end
   end
 end

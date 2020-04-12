@@ -1,14 +1,14 @@
 require_relative '../lib/features.rb'
 
 RSpec.describe String do
-  describe '#identation_with_tabs' do
+  describe '#indentation_with_tabs' do
     it 'counts the number of tabs before text, zero' do
       mystring = "\t\tthis is code\n"
-      expect(mystring.identation_with_tabs).to eq 2
+      expect(mystring.indentation_with_tabs).to eq 2
     end
     it 'counts the number of tabs before text' do
       mystring = "this is code\n"
-      expect(mystring.identation_with_tabs).to eq 0
+      expect(mystring.indentation_with_tabs).to eq 0
     end
   end
 
@@ -27,14 +27,14 @@ RSpec.describe String do
     end
   end
 
-  describe '#identation' do
+  describe '#indentation' do
     it 'counts the number of spaces preceding text' do
       mystring = "  this is code \n"
-      expect(mystring.identation).to eq 2
+      expect(mystring.indentation).to eq 2
     end
     it 'counts the number of spaces preceding text, zero' do
       mystring = "this is code \n"
-      expect(mystring.identation).to eq 0
+      expect(mystring.indentation).to eq 0
     end
   end
 
