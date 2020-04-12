@@ -85,17 +85,17 @@ RSpec.describe Linter do
 
   describe '#indentation_rules' do
     it 'returns a message if the indentation is unexpected' do
-      pre_line = "    code \n"
+      pre_line = " code \n"
       act_line = "   code \n"
-      actual = Linter.indentation_rules(act_line, pre_line, 0)
-      expect(actual[0]['unexpected'].nil?).to eq false
+      actual = Linter.indentation_rules(act_line, pre_line, 2)
+      expect(actual[0]['indentation'].nil?).to eq false
     end
 
     it 'returns a message if the block indentation is used for symbols' do
       pre_line = "  code() \n"
       act_line = "   code \n"
-      actual = Linter.indentation_rules(act_line, pre_line, 0)
-      expect(actual[0]['unexpected'].nil?).to eq false
+      actual = Linter.indentation_rules(act_line, pre_line, 2)
+      expect(actual[0]['indentation'].nil?).to eq false
     end
 
     it 'returns a message if the block indentation not standard' do

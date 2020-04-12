@@ -18,9 +18,10 @@ The most valuable tool to build this linter was use regular expressions or Regex
 ## Presentation Video
 [![Video Screeshot](https://i.ytimg.com/vi/qJFWLQNonno/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCMBswrUp4MCzIqvDIMmsz0TlMK-Q)](https://www.youtube.com/watch?v=qJFWLQNonno&feature=youtu.be)
 
-## Linter Features
+## Linter Features 
 
-This linter flags the following errors:
+This linter works for Python *.py* and Ruby *.rb* files.
+It flags the following errors:
 
 - Unexpected Indentation.
 - Indentation with tabs.
@@ -61,6 +62,26 @@ This linter flags the following errors:
   line: 13, col: 10: rule: there should be a line terminator on last line.
 
  ```
+
+ - **Optional** you can add the command **-r** to linter ruby files
+ ```
+  ./bin/main.rb -r [PATH_WHERE_YOU_CLONED_THIS]/pep8-linter/samples
+ ```
+ - The linter will run and it will show the following output:
+ ```
+  File: /rb_code_1.rb
+  line: 1, col: 22: rule: erase unnecessary spaces before line terminator
+  line: 1, col: 1: rule: indentation should use 2 spaces
+  line: 2, col: 32: rule: erase unnecessary spaces before line terminator
+  line: 3, col: 4: rule: indentation should use 2 spaces
+  line: 4, col: 8: rule: indentation should use 2 spaces
+  line: 6, col: 8: rule: indentation should use 2 spaces
+  line: 8, col: 5: rule: there should be a line terminator on last line
+
+  File: /rb_code_2.rb
+
+ ```
+
 
 ### Explanation
 
