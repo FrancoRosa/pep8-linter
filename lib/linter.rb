@@ -2,9 +2,9 @@ require_relative 'colors.rb'
 require_relative 'features.rb'
 
 class Linter
-  @indentation = 4
   @max_line_length = 79
-
+  @indentation = 4 
+  
   def self.line_terminator(file_data)
     location = "line: #{file_data.size}, col: #{file_data[-1].size}: ".red
     rule = 'rule: there should be a line terminator on last line'
@@ -58,7 +58,7 @@ class Linter
     pre_indentation = pre_line.indentation
     line_indentation = line.indentation
     diff_indentation = line_indentation - pre_indentation
-    if diff_indentation.positive? and pre_line.end_colon?
+    if diff_indentation.positive? and (pre_line.end_colon? or pre_line.class_name? or pre_line.def_name?)
       unless different_indentation(line_indentation, diff_indentation, index).nil?
         broken_rules << different_indentation(line_indentation, diff_indentation, index)
       end
@@ -79,7 +79,11 @@ class Linter
     broken_rules
   end
 
-  def self.check_rules(lines)
+  def self.check_rules(extension, lines)
+    @indentation = 2 unless extension['.rb'].nil?
+    puts ">>>>>>>>>"
+    puts @indentation.inspect
+    puts ">>>>>>>>>"
     broken_rules = []
     lines.each_with_index do |line, i|
       pre_line = i.positive? ? lines[i - 1] : ''

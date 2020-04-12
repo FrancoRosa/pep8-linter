@@ -22,4 +22,12 @@ class String
   def end_new_line_symbol?
     !chomp[/(\( *\z|, *\z|\+ *\z|\[ *\z)/].nil?
   end
+
+  def class_name?
+    !["Class "].nil?
+  end
+
+  def def_name?
+    !["def "].nil?
+  end
 end
